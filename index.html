@@ -1,0 +1,287 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Pull It Together - Systems</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+			<link rel="stylesheet" href="assets/css/custom.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+				<!-- Note: The "styleN" class below should match that of the banner element. -->
+					<header id="header" class="style2">
+						<a href="index.html" class="logo"><strong>John Brazell</strong> <span>Systems Designer & Technical Developer</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="index.html">Overview</a></li>
+							<li><a href="#systems">Key Systems</a></li>
+						</ul>
+					</nav>
+
+<!-- Banner -->
+<!-- Note: The "styleN" class below should match that of the header element. -->
+
+
+<!-- Main -->
+<div id="main">
+
+	<section id="hero" class="wrapper">
+	<div class="inner">
+
+		<header class="major">
+		<h1 class="logo-title">
+			<img src="assets/images/logo_main.png" alt="Pull It Together" />
+		</h1>
+		</header>
+
+		<div class="row gtr-200">
+		<!-- LEFT: Trailer -->
+		<div class="col-7 col-12-medium">
+			<div class="video-embed">
+			<iframe
+				src="https://www.youtube.com/embed/qf0wlIW8vtg"
+				title="Pull It Together Trailer"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+				allowfullscreen
+				loading="lazy"></iframe>
+			</div>
+		</div>
+
+		<!-- RIGHT: Overview + CTA -->
+		<div class="col-5 col-12-medium">
+			<div class="hero-content">
+			<p>
+				Pull It Together is an online cooperative survival adventure where teams haul a wagon through a
+				procedurally generated wilderness with dynamic encounters while outrunning a massive superstorm.
+			</p>
+
+			<ul class="actions">
+				<li><a class="button primary" href="https://store.steampowered.com/app/4458000" target="_blank" rel="noopener">Steam Page</a></li>
+			</ul>
+			</div>
+		</div>
+		</div>
+
+	</div>
+	</section>
+
+	<!-- ROLE / CONTACT BAND -->
+	<section id="one">
+		<div class="inner">
+			<header class="major">
+				<h2>John Brazell - Systems Designer &amp; Lead Technical Developer</h2>
+			</header>
+
+			<p>
+				My featured systems include the adaptive stress director, deterministic trail/terrain pipeline,
+				host-authoritative replication framework, and low-bandwidth network animation synchronization.
+			</p>
+
+			<ul class="actions">
+				<!-- Replace RESUME_URL, CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL as desired -->
+				<li><a class="button" href="https://www.linkedin.com/in/john-brazell" target="_blank" rel="noopener">LinkedIn</a></li>
+				<li><a class="button" href="mailto:johnmbrazell@gmail.com">Email</a></li>
+				<li><strong>johnmbrazell@gmail.com</strong></li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- FULL SECTIONS (spotlight layout: image + text) -->
+	<section id="systems" class="spotlights">
+
+		<section id="overview">
+			<a class="image">
+				<img src="assets/images/overview.jpg" alt="Pull It Together overview screenshot" data-position="center center" />
+			</a>
+			<div class="content">
+				<div class="inner">
+					<header class="major">
+						<h3>Project Overview</h3>
+					</header>
+
+					<p>
+						Pull It Together is a four-player cooperative survival adventure where teams haul a wagon through a procedurally generated wilderness while outrunning a massive superstorm. I serve as the systems designer and lead technical developer, responsible for the game’s pacing logic, world generation, multiplayer authority framework, animation synchronization, and physics-driven interactions. I implemented an adaptive stress director that drives dynamic encounters and storm escalation, built the deterministic trail and terrain pipeline, engineered the host-authoritative replication system for all items and entities, and created the low-bandwidth network animation layer that keeps all players visually consistent. Across this project, I have authored ~70% of the code (C#, GDScript, shaders) and developed the tools, pipelines, and backend architecture used across design, networking, and technical art. 
+					</p>
+
+					<ul>
+						<li><strong>Core concept:</strong> cooperative traversal + survival under escalating chase pressure</li>
+						<li><strong>My focus:</strong> adaptive pacing, deterministic procedural worlds, multiplayer stability</li>
+						<li><strong>Tech:</strong> Godot + C#/GDScript/Shaders + custom tools/pipelines</li>
+					</ul>
+
+				</div>
+			</div>
+		</section>
+
+		<section id="stress-director">
+			<a class="image">
+				<img src="assets/images/stress-director.jpg" alt="Stress director diagram and encounter timeline" data-position="center center" />
+			</a>
+			<div class="content">
+				<div class="inner">
+					<header class="major">
+						<h3>Team Stress Director and Dynamic Encounter Systems</h3>
+					</header>
+
+					<p>
+						Adaptive pacing director that evaluates team condition vs a target difficulty curve and selects encounters to maintain an escalating, fair chase.
+					</p>
+
+					<ul>
+						<li><strong>Stress inputs:</strong> health/stamina/down states, wagon condition, inventory/mitigation, storm proximity, recent encounters, terrain severity</li>
+						<li><strong>Selector:</strong> weighted encounter pool (attacks, recovery moments, weather events, “wacky” encounters)</li>
+						<li><strong>Storm adaptation:</strong> speed and escalation remains reactive without hard spikes</li>
+					</ul>
+
+				</div>
+			</div>
+		</section>
+
+		<section id="procgen">
+			<a class="image">
+				<img src="assets/images/procgen.jpg" alt="Procedural trail and terrain generation stages" data-position="center center" />
+			</a>
+			<div class="content">
+				<div class="inner">
+					<header class="major">
+						<h3>Procedural Trail and Terrain Generation Pipeline</h3>
+					</header>
+
+					<p>
+						Deterministic generation pipeline that produces unique runs from a single seed, with trail difficulty tied to the predefined target curve.
+					</p>
+
+					<ul>
+						<li><strong>Trail:</strong> difficulty-profiled segments, constrained noise (elevation/steepness/curvature), smoothing for playability</li>
+						<li><strong>Terrain:</strong> shader-based biome blending, constraints from trails/rivers/key areas, deterministic scatters</li>
+						<li><strong>Multiplayer:</strong> host-baked heightmap shared and reconstructed across clients</li>
+					</ul>
+
+				</div>
+			</div>
+		</section>
+
+		<section id="replication">
+			<a class="image">
+				<img src="assets/images/replication.jpg" alt="Item replication stability example" data-position="center center" />
+			</a>
+			<div class="content">
+				<div class="inner">
+					<header class="major">
+						<h3>Multiplayer Item Replication and Authority Framework</h3>
+					</header>
+
+					<p>
+						Host-authoritative framework for items, entities, and dynamic events: spawning, ownership, movement/state replication, and stable interactions.
+					</p>
+
+					<ul>
+						<li><strong>Auto registration:</strong> ItemSpawnRegistry scans folders and prepares/registers .tscn items for designers</li>
+						<li><strong>Deterministic IDs:</strong> synchronized dictionaries prevent desync and ghost references</li>
+						<li><strong>Validated interactions:</strong> pickup/drop/inventory/rope/tool usage run through host logic</li>
+						<li><strong>Proxies:</strong> local visual proxies reduce jitter for held items</li>
+						<li><strong>Join-in-progress:</strong> full state reconstruction for new peers</li>
+						<li><strong>Cleanup:</strong> authority resets, proxies freed, dictionaries trimmed on disconnect</li>
+					</ul>
+
+				</div>
+			</div>
+		</section>
+
+		<section id="animation">
+			<a class="image">
+				<img src="assets/images/animation.jpg" alt="Synchronized player animations across the network" data-position="center center" />
+			</a>
+			<div class="content">
+				<div class="inner">
+					<header class="major">
+						<h3>Networked Synchronized Animation System</h3>
+					</header>
+
+					<p>
+						Multiplayer animation layer that replicates parameter values (not frames) so clients reconstruct motion locally with identical animation graphs.
+					</p>
+
+					<ul>
+						<li><strong>Replicated values:</strong> movement blend vectors, interaction indices, action speed multipliers</li>
+						<li><strong>State blends:</strong> aiming, inventory state, item usage blends</li>
+						<li><strong>Benefits:</strong> low bandwidth, predictable interactions, stable group animations</li>
+					</ul>
+
+				</div>
+			</div>
+		</section>
+
+		<section id="additional">
+			<a class="image">
+				<img src="assets/images/additional.jpg" alt="Additional gameplay and tech art systems" data-position="center center" />
+			</a>
+			<div class="content">
+				<div class="inner">
+					<header class="major">
+						<h3>Additional Systems</h3>
+					</header>
+
+					<ul>
+						<li><strong>Gameplay:</strong> inventories/slotting, rope heaving/tethering, harvesting, interaction frameworks</li>
+						<li><strong>NPC AI:</strong> animal behavior trees and encounter behaviors</li>
+						<li><strong>Tech art:</strong> terrain heightmaps, storm clouds, weather event visuals, biome blending</li>
+						<li><strong>Multiplayer/backend:</strong> Steamworks integration, menu flow, plugin integration, custom engine build</li>
+						<li><strong>Team support:</strong> debugging/refactoring, tools for iteration, performance profiling, stability improvements</li>
+					</ul>
+
+					<ul class="actions">
+						<li><a href="index.html" class="button small">Back to Top</a></li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+	</section>
+
+</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="https://store.steampowered.com/app/4458000" class="icon brands alt fa-steam"><span class="label">Steam</span></a></li>
+								<li><a href="https://www.youtube.com/@TeamFalseLead" class="icon brands alt fa-youtube"><span class="label">Youtube</span></a></li>
+								<li><a href="https://www.linkedin.com/in/john-brazell" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

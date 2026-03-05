@@ -1,0 +1,157 @@
+/* =========================
+   Hero section (inside #main)
+   ========================= */
+
+#hero .logo-title {
+  margin: 0 0 1.25rem 0;
+}
+
+#hero .logo-title img {
+  max-width: min(520px, 90%);
+  height: auto;
+  display: block;
+}
+
+/* Ensure right column stacks normally */
+#hero .hero-content {
+  display: block;
+}
+
+#hero .hero-content .actions {
+  margin-top: 1rem;
+}
+
+/* Responsive trailer embed (robust) */
+#hero .video-embed {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  border-radius: 0.35em;
+  overflow: hidden;
+  background: rgba(255,255,255,0.08);
+}
+
+#hero .video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* Optional helpers */
+.qr-code {
+  max-width: 180px;
+  height: auto;
+  display: block;
+}
+
+.small-note {
+  margin-top: 0.75em;
+  font-size: 0.9em;
+  opacity: 0.9;
+}
+
+/* =========================
+   Hero section styling (match banner style2)
+   ========================= */
+
+#hero {
+  background: linear-gradient(
+    135deg,
+    #7b75b6 0%,
+    #6a73b8 40%,
+    #4a6aa8 100%
+  );
+  color: #ffffff;
+}
+
+/* match Forty banner spacing */
+#hero.wrapper {
+  padding: 0rem 0 1rem 0;
+}
+
+/* ensure text stays readable */
+#hero p {
+  color: rgba(255,255,255,0.9);
+}
+
+/* =========================
+   Custom Fonts
+   ========================= */
+
+@font-face {
+  font-family: "Parkinsans";
+  src: url("../webfonts/parkinsans-latin-800-normal.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Exo2";
+  src: url("../webfonts/exo-2-latin-500-normal.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================
+   Typography
+   ========================= */
+
+/* Regular text */
+body {
+  font-family: "Exo2", sans-serif;
+}
+
+/* Titles */
+h1, h2, h3, h4, h5, h6,
+.major h1,
+.major h2,
+.major h3 {
+  font-family: "Parkinsans", sans-serif;
+}
+
+.logo strong,
+button,
+.button {
+  font-family: "Parkinsans", sans-serif;
+}
+
+/* =========================
+   Heading spacing fixes for Parkinsans
+   ========================= */
+
+/* Remove excessive letter spacing from Forty template */
+h1, h2, h3, h4, h5, h6,
+.major h1,
+.major h2,
+.major h3 {
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+/* Main hero logo title (if text ever used instead of image) */
+#hero h1 {
+  letter-spacing: 0.01em;
+}
+
+/* Section headers */
+.major h2,
+.major h3 {
+  letter-spacing: 0.015em;
+}
+
+/* Buttons look better slightly tighter too */
+.button {
+  letter-spacing: 0.03em;
+  text-transform: none;
+}
+
+/* Improve rendering for bold display font */
+h1, h2, h3 {
+  font-weight: 800;
+  line-height: 1.2;
+}
