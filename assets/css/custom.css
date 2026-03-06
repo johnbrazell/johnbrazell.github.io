@@ -1,83 +1,4 @@
 /* =========================
-   Hero section (inside #main)
-   ========================= */
-
-#hero .logo-title {
-  margin: 0 0 1.25rem 0;
-}
-
-#hero .logo-title img {
-  max-width: min(520px, 90%);
-  height: auto;
-  display: block;
-}
-
-/* Ensure right column stacks normally */
-#hero .hero-content {
-  display: block;
-}
-
-#hero .hero-content .actions {
-  margin-top: 1rem;
-}
-
-/* Responsive trailer embed (robust) */
-#hero .video-embed {
-  position: relative;
-  width: 100%;
-  padding-top: 56.25%; /* 16:9 */
-  border-radius: 0.35em;
-  overflow: hidden;
-  background: rgba(255,255,255,0.08);
-}
-
-#hero .video-embed iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  display: block;
-}
-
-/* Optional helpers */
-.qr-code {
-  max-width: 180px;
-  height: auto;
-  display: block;
-}
-
-.small-note {
-  margin-top: 0.75em;
-  font-size: 0.9em;
-  opacity: 0.9;
-}
-
-/* =========================
-   Hero section styling (match banner style2)
-   ========================= */
-
-#hero {
-  background: linear-gradient(
-    135deg,
-    #7b75b6 0%,
-    #6a73b8 40%,
-    #4a6aa8 100%
-  );
-  color: #ffffff;
-}
-
-/* match Forty banner spacing */
-#hero.wrapper {
-  padding: 0rem 0 1rem 0;
-}
-
-/* ensure text stays readable */
-#hero p {
-  color: rgba(255,255,255,0.9);
-}
-
-/* =========================
    Custom Fonts
    ========================= */
 
@@ -98,33 +19,24 @@
 }
 
 /* =========================
-   Typography
+   Global Typography
    ========================= */
 
-/* Regular text */
 body {
   font-family: "Exo2", sans-serif;
 }
 
-/* Titles */
 h1, h2, h3, h4, h5, h6,
 .major h1,
 .major h2,
-.major h3 {
-  font-family: "Parkinsans", sans-serif;
-}
-
+.major h3,
 .logo strong,
 button,
 .button {
   font-family: "Parkinsans", sans-serif;
 }
 
-/* =========================
-   Heading spacing fixes for Parkinsans
-   ========================= */
-
-/* Remove excessive letter spacing from Forty template */
+/* Clean up Forty's default spacing for your fonts */
 h1, h2, h3, h4, h5, h6,
 .major h1,
 .major h2,
@@ -133,25 +45,276 @@ h1, h2, h3, h4, h5, h6,
   text-transform: none;
 }
 
-/* Main hero logo title (if text ever used instead of image) */
 #hero h1 {
   letter-spacing: 0.01em;
 }
 
-/* Section headers */
 .major h2,
 .major h3 {
   letter-spacing: 0.015em;
 }
 
-/* Buttons look better slightly tighter too */
 .button {
   letter-spacing: 0.03em;
   text-transform: none;
 }
 
-/* Improve rendering for bold display font */
 h1, h2, h3 {
   font-weight: 800;
   line-height: 1.2;
+}
+
+/* =========================
+   Global Layout Safety
+   ========================= */
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+#wrapper,
+#main {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img,
+iframe,
+video {
+  max-width: 100%;
+}
+
+#header .logo {
+  white-space: normal;
+  line-height: 1.2;
+}
+
+/* =========================
+   Hero Section
+   ========================= */
+
+#hero {
+  background: linear-gradient(
+    135deg,
+    #7b75b6 0%,
+    #6a73b8 40%,
+    #4a6aa8 100%
+  );
+  color: #ffffff;
+}
+
+#hero.wrapper {
+  padding: 0 0 1rem 0;
+}
+
+#hero p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+#hero .logo-title {
+  margin: 0 0 1.25rem 0;
+}
+
+#hero .logo-title img {
+  max-width: min(520px, 90%);
+  height: auto;
+  display: block;
+}
+
+#hero .hero-content {
+  display: block;
+}
+
+#hero .hero-content .actions {
+  margin-top: 1rem;
+}
+
+/* Trailer embed */
+#hero .video-embed {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: 0.35em;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+#hero .video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* =========================
+   Spotlight Sections
+   ========================= */
+
+.spotlights > section > .image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #2f365f;
+}
+
+.spotlights > section > .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  display: block;
+}
+
+/* =========================
+   Optional Helpers
+   ========================= */
+
+.qr-code {
+  max-width: 180px;
+  height: auto;
+  display: block;
+}
+
+.small-note {
+  margin-top: 0.75em;
+  font-size: 0.9em;
+  opacity: 0.9;
+}
+
+/* =========================
+   Mobile Responsiveness
+   ========================= */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 980px) {
+  #hero.wrapper {
+    padding: 1.5rem 0;
+  }
+
+  #hero .logo-title img {
+    max-width: min(420px, 95%);
+  }
+
+  #hero .hero-content {
+    margin-top: 1.25rem;
+  }
+}
+
+@media screen and (max-width: 736px) {
+  #hero.wrapper {
+    padding: 1rem 0;
+  }
+
+  #hero .logo-title {
+    margin-bottom: 1rem;
+  }
+
+  #hero .logo-title img {
+    max-width: min(320px, 100%);
+  }
+
+  #hero .hero-content {
+    margin-top: 1rem;
+  }
+
+  #hero p,
+  #hero li,
+  #one p,
+  #one li,
+  .spotlights .content p,
+  .spotlights .content li {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  .button {
+    font-size: 0.85rem;
+    padding: 0 1.25rem;
+    height: 2.75rem;
+    line-height: 2.75rem;
+  }
+
+  #hero .actions {
+    margin-top: 1rem;
+  }
+
+  #hero .actions li {
+    margin: 0 0.5rem 0.5rem 0;
+  }
+
+  #one .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  #one .actions li {
+    margin: 0;
+  }
+
+  .spotlights .content .inner {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #hero .logo-title img {
+    max-width: 260px;
+  }
+
+  #hero p,
+  #hero li,
+  #one p,
+  #one li,
+  .spotlights .content p,
+  .spotlights .content li {
+    font-size: 0.9rem;
+  }
+
+  h2 {
+    font-size: 1.35rem;
+  }
+
+  h3 {
+    font-size: 1.15rem;
+  }
+
+  .button {
+    width: 100%;
+    text-align: center;
+    padding: 0;
+  }
+
+  #hero .actions,
+  #one .actions {
+    display: block;
+  }
+
+  #hero .actions li,
+  #one .actions li {
+    display: block;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .spotlights .content .inner,
+  #one .inner {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
 }
