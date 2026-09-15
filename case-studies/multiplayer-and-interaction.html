@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multiplayer &amp; Interaction — John Brazell</title>
+  <meta name="description" content="How I connect host-authoritative gameplay, held-item visuals, state reconstruction, and animation in Pull It Together.">
+  <link rel="canonical" href="https://johnbrazell.github.io/case-studies/multiplayer-and-interaction.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Multiplayer &amp; Interaction — John Brazell">
+  <meta property="og:description" content="How I connect host-authoritative gameplay, held-item visuals, state reconstruction, and animation in Pull It Together.">
+  <meta property="og:url" content="https://johnbrazell.github.io/case-studies/multiplayer-and-interaction.html">
+  <meta property="og:image" content="https://johnbrazell.github.io/assets/media/social-preview.jpg">
+  <meta property="og:image:alt" content="Cooperative wagon traversal in Pull It Together">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <script src="../assets/js/portfolio.js" defer></script>
+</head>
+<body>
+  <!-- Based on Forty by HTML5 UP, html5up.net. CC BY 3.0; attribution retained below. -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="../index.html"><span class="monogram" aria-hidden="true">JB</span><span>John Brazell</span></a>
+    <nav aria-label="Main navigation" id="main-nav"><a href="../index.html#work">Work</a><a href="../index.html#systems">Systems</a><a href="../index.html#research">Research</a><a href="../index.html#prototypes">Prototypes</a><a href="../index.html#about">About / contact</a></nav>
+  </header>
+  <main id="main">
+<article class="case-study shell">
+  <header class="case-header" id="hero"><a class="back-link" href="../index.html#systems">← All systems</a><p class="eyebrow">Pull It Together / Case study 02</p><h1>Shared gameplay.<br>Responsive presentation.</h1><p class="case-deck">Connecting host authority, local visuals, and the many states of a cooperative interaction.</p><div class="case-meta"><span>My role: system design &amp; implementation</span><span>Godot · C# · GDScript</span><span>Multiplayer gameplay</span></div></header>
+  <figure class="media-figure wide">
+      <video controls playsinline preload="none" poster="../assets/media/held-items.webp" width="1280" height="720" aria-label="Held-item presentation comparison">
+        <source src="../assets/media/held-items.webm" type="video/webm">
+        <source src="../assets/media/held-items.mp4" type="video/mp4">
+        <a href="../assets/media/held-items.mp4">Watch Held-item presentation comparison</a>
+      </video>
+      <figcaption>Two views of a held hatchet. Look at the relationship between the tool and the camera during movement. Development footage of held-item presentation. <a href="../assets/media/held-items.mp4">Open clip</a></figcaption>
+    </figure>
+  <section class="prose-section"><h2>One interaction, several responsibilities.</h2><p>A held tool has to exist in the shared world and also look connected to the player holding it. The same object may move between the ground, a hand, inventory, and the wagon. Ropes and cooperative carrying add more relationships to preserve.</p><p>I built the item and entity authority framework, interaction handling, held-state reconstruction, and visual synchronization supporting these transitions. The design separates shared gameplay decisions from how motion is presented locally.</p></section>
+  <section class="prose-section"><p class="eyebrow">Architecture decision</p><h2>Keep gameplay state authoritative.</h2><p>The host assigns unique object identities and handles gameplay requests such as pickup, drop, inventory changes, and tool use. Those identities give peers a shared way to refer to an object as its state changes. Registration scans designated scene folders, allowing content to enter the same spawning system.</p><div class="system-flow" role="group" aria-label="Interaction responsibilities"><div><span>01 / Request</span><strong>Player input</strong><p>Pick up, drop, use, or move an object.</p></div><div><span>02 / Resolve</span><strong>Host gameplay state</strong><p>Validate the request and update the shared object.</p></div><div><span>03 / Present</span><strong>Local visuals</strong><p>Reconstruct the visible interaction on each peer.</p></div></div><p>Local held-item representations and visual smoothing address presentation without moving gameplay authority into every visual object. That separation lets me work on attachment and motion while keeping a single source for the shared state.</p></section>
+  <section class="prose-section"><h2>Joining is a state transition, too.</h2><p>A new peer needs more than a list of spawned objects. It needs to reconstruct the current relationships: which objects exist, which are held, and which state belongs to the current connection.</p><p>The framework uses session-aware world snapshots, acknowledgments, and held-state reconstruction. Session tokens distinguish a current connection from stale messages, and cleanup removes obsolete registrations and local proxies as peers leave.</p><p>This makes joining part of the same interaction architecture, rather than a separate visual shortcut.</p></section>
+  <section class="prose-section" id="animation"><h2>Animate from gameplay parameters.</h2><p>Movement blends, interaction selections, and action-speed parameters drive animation graphs locally. The animation layer works alongside object replication so that locomotion, aiming, item use, and held-object presentation describe the same action.</p></section>
+  <figure class="media-figure strip">
+      <video controls playsinline preload="none" poster="../assets/media/animation.webp" width="1600" height="452" aria-label="Networked player animation demonstration">
+        <source src="../assets/media/animation.webm" type="video/webm">
+        <source src="../assets/media/animation.mp4" type="video/mp4">
+        <a href="../assets/media/animation.mp4">Watch Networked player animation demonstration</a>
+      </video>
+      <figcaption>Side-by-side gameplay views show locally reconstructed player animation. Movement and action parameters drive the animation graphs on each peer. <a href="../assets/media/animation.mp4">Open clip</a></figcaption>
+    </figure>
+  <section class="prose-section"><h2>Spend work where the players are.</h2><p>I also built world-interest handling for spatial dormancy, per-peer synchronization visibility, and waking objects for interactions. Motion updates and changed state use distinct replication policies. Cleanup behind the storm considers proximity to players before removing eligible objects.</p><p>These mechanisms support the same goal as the interaction framework: keep the active cooperative space responsive while preserving the state players rely on. Navigation chunks around the wagon apply a similar focus to animal movement through the generated environment.</p></section>
+  <section class="prose-section"><h2>Iterate on the player-facing result.</h2><p>Recent work includes reducing item clipping at the back of the wagon on clients and giving a carried player a timed “wiggle out” action with input instructions. These are small interactions with consequences for readability and player control.</p><p>Across these interactions, I connect the gameplay rule to the state transition and the result players see. Shared object identities and local presentation provide the foundation for that work.</p></section>
+  <div class="case-end"><p class="eyebrow">Continue exploring</p><a href="pacing-and-world-generation.html">Pacing, procedural worlds, and tools <span aria-hidden="true">→</span></a></div>
+</article></main>
+  <footer class="site-footer shell">
+    <p>© 2026 John Brazell <span class="footer-separator">/</span> <a href="https://html5up.net">Design foundation: HTML5 UP</a></p>
+    <a href="#hero">Back to top <span aria-hidden="true">↑</span></a>
+  </footer>
+</body>
+</html>
