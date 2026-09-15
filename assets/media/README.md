@@ -29,6 +29,7 @@ Thumbnails come from the corresponding public project pages:
 
 - `prototype-unreal.png`: [AI Demo](https://johnbrazell.itch.io/ai-demo), John Brazell.
 - `prototype-minotower.png`: [MinoTower Defense](https://johnbrazell.itch.io/minotower-defense), John Brazell.
+- `prototype-godot.png`: cover from [AI Demo Godot](https://johnbrazell.itch.io/ai-demo-godot), John Brazell, resized to match the other prototype thumbnails.
 - `prototype-spider.png`: [Spider Platformer](https://johnbrazell.itch.io/spider-platformer), with Billy Guzik; John developed the core swinging mechanics.
 
 Project and collaborator artwork is credited to its respective creators. The website template’s license does not grant a separate license to game assets or research figures.
