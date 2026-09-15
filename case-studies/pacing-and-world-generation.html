@@ -3,48 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pacing &amp; Procedural Worlds — John Brazell</title>
-  <meta name="description" content="How I connect procedural generation, adaptive pacing, and tools for inspecting cooperative gameplay in Pull It Together.">
-  <link rel="canonical" href="https://johnbrazell.github.io/case-studies/pacing-and-world-generation.html">
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="Pacing &amp; Procedural Worlds — John Brazell">
-  <meta property="og:description" content="How I connect procedural generation, adaptive pacing, and tools for inspecting cooperative gameplay in Pull It Together.">
-  <meta property="og:url" content="https://johnbrazell.github.io/case-studies/pacing-and-world-generation.html">
-  <meta property="og:image" content="https://johnbrazell.github.io/assets/media/social-preview.jpg">
-  <meta property="og:image:alt" content="Cooperative wagon traversal in Pull It Together">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="../assets/css/main.css">
+  <title>Procedural generation and adaptive pacing — John Brazell</title>
+  <link rel="canonical" href="https://johnbrazell.github.io/#procgen">
   <link rel="stylesheet" href="../assets/css/custom.css">
-  <script src="../assets/js/portfolio.js" defer></script>
+  <script>
+    const sections = new Set(['hero', 'procgen', 'stress-director', 'tools', 'tools-and-evidence', 'evaluation', 'performance', 'replication', 'animation']);
+    const requested = location.hash.slice(1);
+    location.replace('../index.html#' + (sections.has(requested) ? requested : 'procgen'));
+  </script>
 </head>
 <body>
-  <!-- Based on Forty by HTML5 UP, html5up.net. CC BY 3.0; attribution retained below. -->
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <a class="wordmark" href="../index.html"><span class="monogram" aria-hidden="true">JB</span><span>John Brazell</span></a>
-    <nav aria-label="Main navigation" id="main-nav"><a href="../index.html#work">Work</a><a href="../index.html#systems">Systems</a><a href="../index.html#research">Research</a><a href="../index.html#prototypes">Prototypes</a><a href="../index.html#about">About / contact</a></nav>
-  </header>
-  <main id="main">
-<article class="case-study shell">
-  <header class="case-header" id="hero"><a class="back-link" href="../index.html#systems">← All systems</a><p class="eyebrow">Pull It Together / Case study 01</p><h1>Shaping the journey,<br>before and during play.</h1><p class="case-deck">Connecting procedural worlds, adaptive pacing, and tools for design iteration.</p><div class="case-meta"><span>My role: system design &amp; implementation</span><span>Godot · C# · GDScript</span><span>CoG demonstration · August 2026</span></div></header>
-  <div class="case-opening"><div><h2>The design problem</h2><p>A cooperative survival run needs room to build pressure and recover. A generated trail sets part of that rhythm, but players also change it through resource use, teamwork, and their response to encounters.</p><p>I designed and implemented systems that connect those layers. In the August 30, 2026 CoG demonstration, a shared target curve guided procedural generation and runtime control. My contribution spans the generation pipeline, pacing director, preview tools, and telemetry used to inspect a run.</p></div><figure class="media-figure square">
-      <video controls playsinline preload="none" poster="../assets/media/generation.webp" width="1000" height="1000" aria-label="Procedural world generation stages">
-        <source src="../assets/media/generation.webm" type="video/webm">
-        <source src="../assets/media/generation.mp4" type="video/mp4">
-        <a href="../assets/media/generation.mp4">Watch Procedural world generation stages</a>
-      </video>
-      <figcaption>The generation sequence builds a trail into surrounding terrain and environmental placement. My work covers the trail and terrain pipeline; game art is collaborative. <a href="../assets/media/generation.mp4">Open clip</a></figcaption>
-    </figure></div>
-  <section class="prose-section"><p class="eyebrow">Design decision</p><h2>A pacing target, with room for gameplay.</h2><p>The research build samples a target across progress to the goal and maps it to difficulty profiles. These profiles shape elevation, slope, and curvature along connected trail segments. The surrounding terrain blends around the trail and gameplay areas.</p><p>A river crossing is a useful tradeoff: water introduces its own challenge, so a modifier can lower the local trail difficulty. The authored target provides structure while traversal needs influence the actual space.</p><figure class="chart-figure"><img class="" src="../assets/media/pacing-generation.png" alt="A target pacing curve over trail-difficulty bars, with local low-difficulty overrides" width="2048" height="840" loading="lazy" decoding="async"><figcaption>Generation diagram from the CoG presentation. The black curve is the pacing target; the green profile values include local overrides.</figcaption></figure></section>
-  <section class="prose-section"><h2>Coarse structure, continuous feedback.</h2><p>During play, the director compares its target with a computed stress proxy: a game-state signal based on players, wagon condition, storm proximity, and environmental pressure. It uses that difference to select eligible pressure or relief events, while storm adjustments provide correction between encounters.</p><div class="decision-example"><span class="eyebrow">Illustrative decision from the presentation</span><p><strong>Target 0.40 · Proxy 0.55</strong></p><p>The proxy is 0.15 above target. Prefer an eligible relief event, such as Northern Lights, rather than adding another challenge.</p></div><p>The proxy gives the controller something actionable to observe. Players still determine how encounters unfold, and the signal describes game state rather than directly measuring their feelings.</p></section>
-  <section class="prose-section"><h2>Reproducible inputs, explicit authority.</h2><p>Editable generation presets resolve into read-only session inputs. Separate random-seed domains isolate generation responsibilities. Clients normally generate locally from host-resolved inputs; a terrain-download fallback supplies the host height data when needed.</p><p>The terrain pipeline combines CPU base noise with GPU shaping, then uses a canonical 16-bit height representation for mesh and collision. Gameplay scatter is host-authoritative. Local environmental appearance uses stable candidate seeds, while placement can vary across hardware. Candidate-based appearance stays stable when other candidates are removed, without requiring every peer to place all environmental objects identically.</p></section>
-  <section class="prose-section" id="tools-and-evidence"><h2>Tools that make a run inspectable.</h2><p>I built terrain and level previews for checking generated layouts, with scatter omitted for faster visual iteration. Post-game maps, event histories, and pacing plots provide a second view: what the systems did during a completed run.</p><p class="small-note">The shared-target behavior shown here is the CoG demonstration. The current development branch temporarily uses linear trail difficulty for debugging. Preview tool annotations are temporarily disabled around a Godot C# engine issue.</p></section>
-  <section class="evaluation-section" id="evaluation"><div class="section-heading"><div><p class="eyebrow">Preliminary evaluation / CoG 2026</p><h2>Inspecting the pacing trace.</h2></div></div><figure class="chart-figure"><img class="" src="../assets/media/pacing-evaluation.png" alt="CoG chart: black target curve, blue game-state proxy traces, and orange event markers across progress to goal" width="2048" height="1214" loading="lazy" decoding="async"><figcaption>Figure from the CoG presentation: black target, blue observed proxy, and orange event triggers. <a href="https://docs.google.com/presentation/d/1fP0E25BEL8_ynqduKgfCoFmk-GsYpv0kotvUB8F-1J0/edit?usp=sharing">View the presentation</a>.</figcaption></figure><dl class="results"><div><dt>Developer sessions</dt><dd>10</dd></div><div><dt>Mean absolute error</dt><dd>0.09</dd></div><div><dt>Session MAE range</dt><dd>0.05–0.13</dd></div><div><dt>SD of session MAEs</dt><dd>0.03</dd></div></dl><p>These presentation-reported results describe target tracking across ten developer sessions with all system layers enabled. They provide a starting point for evaluating the controller; player-reported tension and comparisons with individual layers disabled are further research questions.</p></section>
-  <div class="case-end"><p class="eyebrow">Next case study</p><a href="multiplayer-and-interaction.html">Shared gameplay. Responsive presentation. <span aria-hidden="true">→</span></a></div>
-</article></main>
-  <footer class="site-footer shell">
-    <p>© 2026 John Brazell <span class="footer-separator">/</span> <a href="https://html5up.net">Design foundation: HTML5 UP</a></p>
-    <a href="#hero">Back to top <span aria-hidden="true">↑</span></a>
-  </footer>
+  <main class="shell legacy-page">
+    <h1>Procedural generation and adaptive pacing</h1>
+    <p>The system descriptions, demonstrations, and research now appear together on the main portfolio page.</p>
+    <p><a href="../index.html#procgen">View this work on the portfolio</a></p>
+    <nav class="inline-links" aria-label="Related work"><a href="../index.html#tools-and-evidence">Tools and telemetry</a><a href="../index.html#evaluation">Research evaluation</a><a href="../index.html#animation">Animation demonstration</a></nav>
+  </main>
 </body>
 </html>
