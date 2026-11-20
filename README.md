@@ -26,6 +26,8 @@ The trailer requests muted autoplay with an explicit referrer policy and the act
 
 Generation timings are representative recorded development runs from September 2, 2026, in the Godot 4.6.3 editor on a Ryzen 7 4800H / GTX 1660 Ti / 16 GB DDR4 / Windows 11 machine. Workloads and scope are shown with the figures. They are not statistical averages. The research MAE figures describe the ten-session CoG evaluation and are separate from these performance checks.
 
-The Godot perception prototype is awaiting a public release and is not linked. The current public prototype entries are Unreal AI Demo and MinoTower Defense. Resume source files, paper manuscripts, raw logs, and private planning notes are maintained outside this public repository.
+The public prototype entries are Unreal AI Demo, MinoTower Defense, and Godot AI Demo. Resume source files, paper manuscripts, raw logs, and private planning notes are maintained outside this public repository.
+
+The November 19, 2026 update uses the final press-kit key art and reveal trailer `tTmVbIdu48Q`. The overview credits three core developers and eight artists, names Bad Ideas Productions as publisher, and labels December 16, 2026 as the planned Steam release. RPI GameFest and RIT links support the two finalist placements. The research section leads with the extended IEEE paper and retains both the CoG slides and initial I3D publication.
 
 The visual foundation is [Forty by HTML5 UP](https://html5up.net/forty), licensed under [CC BY 3.0](https://html5up.net/license). Template attribution is retained in the pages and original assets. Game artwork, research figures, and prototype media have their own authorship; see the media credits.

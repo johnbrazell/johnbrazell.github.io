@@ -4,14 +4,17 @@ These files are presentation copies of existing project footage, project-page ar
 
 ## Pull It Together
 
-Game by Team False Lead: John Brazell, Leo Schindler-Gerendasi, and Jack Keegan, with external art and music collaborators. John’s systems contributions are described on the portfolio pages; the gameplay visuals include collaborative game art.
+Game by Team False Lead: three core developers (John Brazell, Leo Schindler-Gerendasi, and Jack Keegan) and eight artists, with music collaborators. Published by Bad Ideas Productions. John’s systems contributions are described on the portfolio pages; the gameplay visuals include collaborative game art.
 
 - `cooperation.mp4` / `.webp`: derived from the portfolio’s `RopeTetherStormCoop11.5sec.gif`.
 - `generation.mp4` / `.webp`: derived from `LevelGenStepsProgress.gif`.
 - `held-items.mp4` / `.webp`: derived from `HeldItemsBeforeAfter.gif`.
 - `animation.mp4` / `.webp`: derived from `SyncedAnims.gif`.
-- `social-preview.jpg`: a still from the cooperative gameplay footage.
-- `pull-it-together-promo.webp`: owner-supplied portrait promotional art, converted to WebP without changing the composition. Game art by Team False Lead's collaborators.
+- `social-preview.jpg`: previous social-preview still from cooperative gameplay footage, retained as an archive asset.
+- `pull-it-together-promo.webp`: previous owner-supplied portrait promotional art, retained as an archive asset.
+- `pull-it-together-key-art.webp`: final press-kit `Key Art/Vertical_Cap.png`, converted to WebP with the composition unchanged.
+- `pull-it-together-trailer.webp`: final press-kit `Key Art/Increased Saturation/Screen_Size_Saturated_Logo.png`, resized to 1280 × 720 for the trailer fallback.
+- `pull-it-together-social.jpg`: final press-kit `Key Art/Main_Cap.png`, converted to JPEG at 1232 × 706 without cropping for Open Graph and Twitter previews. The three final-art files use the owner-supplied press kit received November 19, 2026.
 - `post-game-summary.webp`: exact crop of the owner-supplied post-game screenshot, retaining the route map and pacing plot. The upper navigation/header and lower Events/player/metadata panels are excluded. No generated imagery or replaced UI text.
 - `trail-profiles-top.webp` and `trail-profiles-side.webp`: owner-supplied difficulty-profile screenshots, lossless WebP copies at their original dimensions.
 - `icon-treasure-map.webp`: owner-supplied treasure-map event icon, resized for web use with transparency preserved.

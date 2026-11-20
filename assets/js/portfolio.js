@@ -9,7 +9,7 @@ if (trailerShell) {
   }
   const frame = document.createElement('iframe');
   frame.src = source.href;
-  frame.title = 'Pull It Together gameplay trailer';
+  frame.title = 'Pull It Together reveal trailer';
   frame.allow = 'autoplay; encrypted-media; picture-in-picture; web-share';
   frame.allowFullscreen = true;
   frame.referrerPolicy = 'strict-origin-when-cross-origin';
